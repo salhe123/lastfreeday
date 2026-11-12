@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { ThemeToggle } from "./theme.jsx";
 
 const TOKEN_KEY = "lfd_token";
 
@@ -257,6 +258,7 @@ export default function App() {
           </div>
         </aside>
         <main className="login-pane">
+          <ThemeToggle />
           <form className="login-card" onSubmit={doLogin}>
             <p className="login-brand">LastFreeDay</p>
             <h1>Sign in to the control desk</h1>
@@ -319,6 +321,7 @@ export default function App() {
         <div className="sub">
           {user.username} ({user.role}) · Gemini {health?.gemini ? "on" : "offline parse"} · Mail{" "}
           {health?.mail || "dry_run"}{" "}
+          <ThemeToggle />
           <button className="ghost" onClick={logout} style={{ marginLeft: 8 }}>
             Log out
           </button>

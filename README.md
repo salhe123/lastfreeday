@@ -4,7 +4,7 @@ Demurrage control desk for import ops. Kidus approved v2 on 12 Nov 2026.
 
 Parse messy arrival notices, **container-level** last free day (Gemini extract vs computed calendar), price exposure from tariffs, chase T−72/48/24/0, **never auto-email** on conflict or low confidence.
 
-Design: `DESIGN.md`. Reply to Kidus: `EMAIL_KIDUS.md`.
+Design: `DESIGN.md`.
 
 ## Stack
 
