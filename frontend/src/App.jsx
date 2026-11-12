@@ -260,7 +260,10 @@ export default function App() {
         <main className="login-pane">
           <ThemeToggle />
           <form className="login-card" onSubmit={doLogin}>
-            <p className="login-brand">LastFreeDay</p>
+            <p className="login-brand">
+              <img className="brand-mark" src="/favicon.svg" alt="" />
+              LastFreeDay
+            </p>
             <h1>Sign in to the control desk</h1>
             <p className="sub">Container clocks, exposure, and a human review queue before any mail goes out.</p>
             <label>
@@ -315,7 +318,10 @@ export default function App() {
     <div className="wrap wide">
       <header>
         <div>
-          <h1>LastFreeDay</h1>
+          <h1 className="desk-title">
+            <img className="brand-mark" src="/favicon.svg" alt="" />
+            LastFreeDay
+          </h1>
           <div className="sub">Demurrage control desk · container clocks, money at risk, human review</div>
         </div>
         <div className="sub">

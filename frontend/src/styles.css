@@ -134,6 +134,20 @@ a { color: inherit; }
   font-size: 15px;
   letter-spacing: 0.08em;
   color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  display: block;
+}
+.desk-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .login-card h1 {
   font-size: 28px;
