@@ -1,0 +1,20 @@
+ARRIVAL NOTICE — DRAFT FOR DEMO (all names made up)
+
+To: Seya Trading PLC
+From: Highland Freight / ops@highland-freight.example
+Port: Djibouti — Doraleh
+Vessel: MV BLUE HIGHLAND
+Voyage: 2609W
+BL: HLF2609WSEYA01
+ETA / discharged: 2026-11-07
+Free time: 7 calendar days from discharge
+Containers:
+  MSKU7834210  40HC  LFD: 2026-11-14
+  TCLU2291883  40HC  LFD: 2026-11-12
+Cargo: ceramic tiles, 2 x 40HC
+Consignee: Seya Trading PLC, Addis Ababa
+Please arrange pickup and inland haulage before LFD to avoid demurrage/detention.
+Contact: ops@highland-freight.example
+
+Note: TCLU2291883 LFD on the notice (12 Nov) does not match 7 free days from 7 Nov
+(computed 14 Nov). That box must go to the review queue — do not auto-email.
