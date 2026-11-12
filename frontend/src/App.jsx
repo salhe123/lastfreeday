@@ -49,6 +49,7 @@ export default function App() {
   const [error, setError] = useState("");
   const [flash, setFlash] = useState("");
   const [loginForm, setLoginForm] = useState({ username: "ops", password: "ops" });
+  const [showPassword, setShowPassword] = useState(false);
 
   const refreshBoard = useCallback(async () => {
     const data = await api("/api/board");
@@ -245,31 +246,65 @@ export default function App() {
 
   if (!user) {
     return (
-      <div className="wrap">
-        <h1>LastFreeDay</h1>
-        <p className="sub">Demurrage control desk — login</p>
-        <form className="panel" onSubmit={doLogin} style={{ maxWidth: 360, marginTop: 20 }}>
-          <label className="muted">
-            Username
-            <input
-              value={loginForm.username}
-              onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
-            />
-          </label>
-          <label className="muted" style={{ display: "block", marginTop: 8 }}>
-            Password
-            <input
-              type="password"
-              value={loginForm.password}
-              onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
-            />
-          </label>
-          <p className="sub">Demo: ops/ops · owner/owner · viewer/viewer</p>
-          <button disabled={!!busy} style={{ marginTop: 12 }}>
-            {busy === "login" ? "…" : "Enter"}
-          </button>
-          {error && <p className="err">{error}</p>}
-        </form>
+      <div className="login-shell">
+        <aside className="login-hero" aria-hidden="true">
+          <img src="/login-port.jpg" alt="" />
+          <div className="login-hero-shade" />
+          <div className="login-watermark">LastFreeDay</div>
+          <div className="login-hero-copy">
+            <p className="login-kicker">Import operations</p>
+            <p>No container sits past free days.</p>
+          </div>
+        </aside>
+        <main className="login-pane">
+          <form className="login-card" onSubmit={doLogin}>
+            <p className="login-brand">LastFreeDay</p>
+            <h1>Sign in to the control desk</h1>
+            <p className="sub">Container clocks, exposure, and a human review queue before any mail goes out.</p>
+            <label>
+              Username
+              <input
+                autoComplete="username"
+                value={loginForm.username}
+                onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
+              />
+            </label>
+            <label>
+              Password
+              <span className="password-field">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  autoComplete="current-password"
+                  value={loginForm.password}
+                  onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+                />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  onClick={() => setShowPassword((v) => !v)}
+                >
+                  {showPassword ? (
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.6 10.6A3 3 0 0 0 12 15a3 3 0 0 0 2.4-4.4M9.9 5.2A11 11 0 0 1 12 5c5.3 0 9.3 2.9 11 7a12.5 12.5 0 0 1-4.2 4.8M6.7 6.7C4.4 8.1 2.6 10 1 12c1.7 4.1 5.7 7 11 7 1.5 0 2.9-.3 4.2-.8" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M1 12c1.7-4.1 5.7-7 11-7s9.3 2.9 11 7c-1.7 4.1-5.7 7-11 7S2.7 16.1 1 12z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  )}
+                </button>
+              </span>
+            </label>
+            <button className="login-submit" disabled={!!busy}>
+              {busy === "login" ? "Signing in…" : "Sign in"}
+            </button>
+            {error && <p className="err">{error}</p>}
+            <p className="login-demo">Demo · ops/ops · owner/owner · viewer/viewer</p>
+          </form>
+        </main>
       </div>
     );
   }
